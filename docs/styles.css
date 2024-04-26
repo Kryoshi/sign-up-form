@@ -45,6 +45,9 @@ button {
     --color-text: #000000;
     --color-shadow: #aaa;
 
+    --color-invalid: crimson;
+    --color-valid: cornflowerblue;
+
     --color-text-darkbg: #fff;
     --color-contrast-text-darkbg: #00000080;
 }
@@ -154,7 +157,6 @@ body {
 
 .signup li {
     width: 40%;
-    margin-bottom: 4%;
 }
 
 .signup label {
@@ -172,11 +174,35 @@ body {
     padding: 0.2rem 0.4rem;
 }
 
+.signup input + span {
+    visibility: hidden;
+}
+
 .signup input:focus {
     outline: none;
-    border-color: cornflowerblue;
-    border-radius: 5px;
+    border-color: var(--color-valid);
     box-shadow: 2px 2px 3px var(--color-shadow);
+}
+
+.signup input:invalid:not(:placeholder-shown) {
+    border-color: var(--color-invalid);
+}
+
+.signup input:invalid:not(:placeholder-shown) + span::after{
+    visibility: visible;
+    color: var(--color-invalid);
+}
+
+.signup input[type="text"]:invalid:not(:placeholder-shown) + span::after{
+    content: "Please enter a name";
+}
+
+.signup input[type="email"]:invalid:not(:placeholder-shown) + span::after{
+    content: "Please enter a valid email";
+}
+
+.signup input[type="password"]:invalid:not(:placeholder-shown) + span::after{
+    content: "Too short!";
 }
 
 .signup .footer {
