@@ -92,3 +92,17 @@ body {
     flex-grow: 1;
     background: #eeeeee;
 }
+
+.content .header {
+    height: 35%;
+}
+
+.content .body {
+    height: 30%;
+    background: #fff;
+    box-shadow: 4px 4px 5px 5px #aaa;
+}
+
+.content .footer {
+    height: 35%;
+}
