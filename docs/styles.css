@@ -9,7 +9,7 @@
     box-sizing: border-box;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h3,h4,h5,h6,ul,li {
     margin: 0;
     padding: 0;
     font-size: inherit;
@@ -20,24 +20,40 @@ a {
     color: inherit;
 }
 
+ul {
+    list-style-type: none;
+}
+
 form,
 input,
 label,
 select,
 button {
+    appearance: none;
     margin: 0;
     padding: 0;
     font-family: inherit;
     font-size: inherit;
     font-weight: normal;
+    display: block;
 }
+:root {
+    font-size: calc(6px + 1vh);
 
+    --color-button: #4c6b4c;
+    --color-background: #eeeeee;
+    --color-text: #000000;
+    --color-shadow: #aaa;
+
+    --color-text-darkbg: #fff;
+    --color-contrast-text-darkbg: #00000080;
+}
 body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
+    color: var(--color-text);
     display: flex;
     flex-direction: column;
 }
@@ -50,20 +66,21 @@ body {
 }
 
 .sidebar {
-    background-color: gray;
+    background-color: var(--color-background);
     background: url(img/background.jpg) no-repeat center center;
+    background-size: cover;
     width: 35%;
     
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 
-    color: white;
+    color: var(--color-text-darkbg);
 }
 
 .sidebar .hero {
     margin-top: 50%;
-    background: #00000080;
+    background: var(--color-contrast-text-darkbg);
     height: 8rem;
     display: flex;
     justify-content: center;
@@ -83,26 +100,111 @@ body {
 
 .sidebar .image-credit {
     width: 100%;
-    background: #11111180;
+    background: var(--color-contrast-text-darkbg);
     text-align: center;
     padding: 0.5em;
 }
 
 .content {
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-background);
+}
+
+.container {
+    padding: calc(1rem + 1vh) calc(1rem + 2vw);
+}
+
+.signup {
     flex-grow: 1;
-    background: #eeeeee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.content .header {
-    height: 35%;
+.signup h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
-.content .body {
-    height: 30%;
-    background: #fff;
-    box-shadow: 4px 4px 5px 5px #aaa;
+.signup .header {
+    flex-grow: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.content .footer {
-    height: 35%;
+.signup .body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    background: var(--color-text-darkbg);
+    box-shadow: 4px 4px 5px 5px var(--color-shadow);
+}
+
+.signup .body ul {
+    width: calc(300px + 20vw);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10%;
+}
+
+.signup li {
+    width: 40%;
+    margin-bottom: 4%;
+}
+
+.signup label {
+    color: #454545;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.signup input {
+    height: 2rem;
+    width: 100%;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.4rem;
+
+    padding: 0.2rem 0.4rem;
+}
+
+.signup input:focus {
+    outline: none;
+    border-color: cornflowerblue;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px var(--color-shadow);
+}
+
+.signup .footer {
+    flex-grow: 4;
+}
+
+.signup button {
+    width: calc(20ch + 2vw);
+    height: 3rem;
+    padding: 0.2rem;
+
+    background-color: var(--color-button);
+    color: var(--color-text-darkbg);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    border: none;
+
+    transition: all 0.2s linear;
+}
+
+.signup button:hover {
+    background-color: var(--color-text-darkbg);
+    color: var(--color-button);
+    border: 1px solid var(--color-button);
+}
+
+.signup a {
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--color-button);
 }
