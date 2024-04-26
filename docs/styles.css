@@ -35,6 +35,7 @@ button {
 body {
     margin: 0;
     padding: 0;
+    min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     display: flex;
@@ -42,19 +43,17 @@ body {
 }
 
 .frame {
-    flex: 1 1 auto;
-    width: 100vw;
-    height: 100vh;
+    flex: 1;
     display: flex;
     flex-direction: row;
+    align-items: stretch;
 }
 
 .sidebar {
     background-color: gray;
     background: url(img/background.jpg) no-repeat center center;
     width: 35%;
-    height: 100%;
-
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -87,4 +86,9 @@ body {
     background: #11111180;
     text-align: center;
     padding: 0.5em;
+}
+
+.content {
+    flex-grow: 1;
+    background: #eeeeee;
 }
